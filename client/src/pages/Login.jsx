@@ -65,7 +65,7 @@ const Login = () => {
         {/* Button triggers handleSubmit when clicked */}
         <button onClick={handleSubmit}>Login</button>
         {/* Display error message if present */}
-        {err && <p>{err}</p>}
+        {err && <p>{err.message}</p>}
         {/* Link to the register page if the user needs to create an account */}
         <span>
           Don't you have an account? <Link to="/register">Register</Link>

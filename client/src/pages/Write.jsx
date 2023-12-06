@@ -38,7 +38,7 @@ const Write = () => {
             cat,
             img: file ? imgUrl : "",
           })
-        : await axios.post(`http:/server/routes/posts/`, {
+        : await axios.post(`http:/server/routes/posts`, {
             title,
             desc: value,
             cat,

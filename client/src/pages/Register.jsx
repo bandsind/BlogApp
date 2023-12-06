@@ -51,7 +51,7 @@ const Register = () => {
         {/* Button triggers handleSubmit when clicked */}
         <button onClick={handleSubmit}>Register</button>
         {/* Display error message if present */}
-        {err && <p>{err}</p>}
+        {err && <p>{err.message}</p>}
         {/* Link to the login page if the user already has an account */}
         <span>Do you have an account? <Link to="/login"> Login</Link> </span> 
       </form>

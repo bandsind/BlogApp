@@ -3,21 +3,21 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
 
-const Menu = ({cat}) => {
-    const [posts, setPosts] = useState([]);
-  
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get(`http:/server/routes/posts/?cat=${cat}`); 
-          setPosts(res.data);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      fetchData();
-    }, [cat]);
-  
+const Menu = ({ cat }) => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http:/server/routes/posts/?cat=${cat}`);
+        setPosts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [cat]);
+
   // const posts = [
   //   {
   //     id: 1,
@@ -48,13 +48,14 @@ const Menu = ({cat}) => {
   return (
     <div className="menu">
       <h1>Other posts you may like</h1>
-      {posts.map((post) => (
-        <div className="post" key={post.id}>
-          <img src={`../upload/${post?.img}`}alt="" />
-          <h2>{post.title}</h2>
-          <button>Read More</button>
-        </div>
-      ))}
+      {Array.isArray(posts) &&
+        posts.map((post) => (
+          <div className="post" key={post.id}>
+            <img src={`../upload/${post?.img}`} alt="" />
+            <h2>{post.title}</h2>
+            <button>Read More</button>
+          </div>
+        ))}
     </div>
   );
 };
